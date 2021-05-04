@@ -7,11 +7,7 @@ Easily install wordpress as a single docker-compose.yml services
 # How to Install
 
 1 - Install docker & docker-compose on your machine <br>
-<<<<<<< HEAD
 2 - Run this command in root directory of this repo : <br>
-=======
-2 - Run this command  in root directory of this repo : <br><br>
->>>>>>> 80ed68d0fcb6cfae770ad6468f71fe6b895e8cb3
 `docker-compose up -d`
 
 # Docker Swarm Install
