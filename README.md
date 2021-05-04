@@ -23,13 +23,14 @@ Easily install wordpress as a single docker-compose.yml services
 - This repo contains custom php-fpm Dockerfile that you can edit and build your own image with customized php.ini settings ,<br>
 
 * default settings are :<br>
-  ` Set PHP.ini settings for script execution and uploads <br><br>
-  file_uploads = On <br>
-  upload_max_filesize = 64M <br>
-  post_max_size = 64M <br>
-  memory_limit = 256M <br>
-  max_execution_time = 600 <br>
-  max_input_time = 600 ' <br><br>
+  Set PHP.ini settings for script execution and uploads <br><br>
+  `file_uploads = On`<br>
+  `upload_max_filesize = 64M`<br>
+  `post_max_size = 64M`<br>
+  `memory_limit = 256M`<br>
+  `max_execution_time = 600`<br>
+  `max_input_time = 600`<br><br>
+
 * Change this dockerfile in : ./php/Dockerfile <br>
 
 # Features to be added soon :
