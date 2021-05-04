@@ -2,7 +2,7 @@
 
 Wordpress , PHP FPM 7.1 , NGINX, MariaDB , phpmyadmin , docker & docker-compose
 
-![ Dockerized Wordpress with NGINX web server & MariaDB - Wordpress , PHP FPM 7.1 , NGINX, MariaDB , phpmyadmin , docker & docker-compose](https://github.com/[username]/[reponame]/blob/[branch]/screenshots/wp-docker-01.png?raw=true)
+![ Dockerized Wordpress with NGINX web server & MariaDB - Wordpress , PHP FPM 7.1 , NGINX, MariaDB , phpmyadmin , docker & docker-compose](https://raw.githubusercontent.com/masoudei/docker-wordpress-nginx/master/screenshots/wp-docker-01.png?raw=true)
 
 Easily install wordpress as a single docker-compose.yml services
 
