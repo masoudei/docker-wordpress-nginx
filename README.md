@@ -7,14 +7,18 @@ Easily install wordpress as a single docker-compose.yml services
 # How to Install
 
 1 - Install docker & docker-compose on your machine <br>
+<<<<<<< HEAD
 2 - Run this command in root directory of this repo : <br>
+=======
+2 - Run this command  in root directory of this repo : <br><br>
+>>>>>>> 80ed68d0fcb6cfae770ad6468f71fe6b895e8cb3
 `docker-compose up -d`
 
 # Docker Swarm Install
 
 1 - Install docker & Initialize docker swarm cluster<br>
 1 - Easily run this command to install as a swarm stack
-<br>
+<br><br>
 `docker stack deploy -c docker-compose.yml docker-wordpress-nginx`
 
 # Notes
