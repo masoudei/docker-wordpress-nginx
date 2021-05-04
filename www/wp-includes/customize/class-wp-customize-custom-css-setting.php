@@ -57,9 +57,9 @@ final class WP_Customize_Custom_CSS_Setting extends WP_Customize_Setting {
 	 *
 	 * @throws Exception If the setting ID does not match the pattern `custom_css[$stylesheet]`.
 	 *
-	 * @param WP_Customize_Manager $manager The Customize Manager class.
-	 * @param string               $id      An specific ID of the setting. Can be a
-	 *                                      theme mod or option name.
+	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
+	 * @param string               $id      A specific ID of the setting.
+	 *                                      Can be a theme mod or option name.
 	 * @param array                $args    Setting arguments.
 	 */
 	public function __construct( $manager, $id, $args = array() ) {
@@ -95,6 +95,7 @@ final class WP_Customize_Custom_CSS_Setting extends WP_Customize_Setting {
 	 * This is used in the preview when `wp_get_custom_css()` is called for rendering the styles.
 	 *
 	 * @since 4.7.0
+	 *
 	 * @see wp_get_custom_css()
 	 *
 	 * @param string $css        Original CSS.
@@ -115,6 +116,7 @@ final class WP_Customize_Custom_CSS_Setting extends WP_Customize_Setting {
 	 * Fetch the value of the setting. Will return the previewed value when `preview()` is called.
 	 *
 	 * @since 4.7.0
+	 *
 	 * @see WP_Customize_Setting::value()
 	 *
 	 * @return string
@@ -127,8 +129,8 @@ final class WP_Customize_Custom_CSS_Setting extends WP_Customize_Setting {
 			}
 		}
 		$id_base = $this->id_data['base'];
-		$value = '';
-		$post = wp_get_custom_css_post( $this->stylesheet );
+		$value   = '';
+		$post    = wp_get_custom_css_post( $this->stylesheet );
 		if ( $post ) {
 			$value = $post->post_content;
 		}
@@ -161,7 +163,7 @@ final class WP_Customize_Custom_CSS_Setting extends WP_Customize_Setting {
 			$validity->add( 'illegal_markup', __( 'Markup is not allowed in CSS.' ) );
 		}
 
-		if ( empty( $validity->errors ) ) {
+		if ( ! $validity->has_errors() ) {
 			$validity = parent::validate( $css );
 		}
 		return $validity;
@@ -180,9 +182,12 @@ final class WP_Customize_Custom_CSS_Setting extends WP_Customize_Setting {
 			$css = '';
 		}
 
-		$r = wp_update_custom_css_post( $css, array(
-			'stylesheet' => $this->stylesheet,
-		) );
+		$r = wp_update_custom_css_post(
+			$css,
+			array(
+				'stylesheet' => $this->stylesheet,
+			)
+		);
 
 		if ( $r instanceof WP_Error ) {
 			return false;

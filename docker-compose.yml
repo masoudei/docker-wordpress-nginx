@@ -1,46 +1,45 @@
-version: '2'
+version: "3.5"
 services:
+  nginx:
+    build: ./nginx/
+    ports:
+      - "80:80"
+    volumes_from:
+      - php
+    volumes:
+      - ./nginx/log:/var/log/nginx
+    links:
+      - php
 
-nginx:
-  build: ./nginx/ 
-  ports:
-    - "80:80"
-  volumes_from:
-    - php
-  volumes:
-    - ./nginx/log:/var/log/nginx
-  links:
-   - php
+  php:
+    build: ./php/
+    volumes:
+      - ./www:/www
+    links:
+      - mariadb
 
-php:
-  build: ./php/
-  volumes:
-    - ./www:/www
-  links:
-    - mariadb
+  mariadb:
+    image: mariadb
+    restart: always
+    volumes:
+      - ./mariadb:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: PASSWORD
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: PASSWORD
+      MYSQL_DATABASE: projectdb
+    expose:
+      - "3306"
 
-mariadb:
-  image: mariadb 
-  restart: always
-  volumes:
-    - ./mariadb:/var/lib/mysql
-  environment:
-    MYSQL_ROOT_PASSWORD: PASSWORD 
-    MYSQL_USER: admin
-    MYSQL_PASSWORD: PASSWORD
-    MYSQL_DATABASE: projectdb
-  expose:
-    - "3306"
-
-phpmyadmin:
-  image: phpmyadmin/phpmyadmin
-  restart: always
-  links:
-    - mariadb
-  ports:
-    - 8183:80
-  environment:
-    MYSQL_USERNAME: admin
-    MYSQL_ROOT_PASSWORD: PASSWORD 
-    PMA_HOST: 127.0.0.1
-    PMA_ARBITRARY: 1
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    links:
+      - mariadb
+    ports:
+      - 8183:80
+    environment:
+      MYSQL_USERNAME: admin
+      MYSQL_ROOT_PASSWORD: PASSWORD
+      PMA_HOST: 127.0.0.1
+      PMA_ARBITRARY: 1
