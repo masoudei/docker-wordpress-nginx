@@ -20,6 +20,8 @@ Easily install wordpress as a single docker-compose.yml services
 <br><br>
 `docker stack deploy -c docker-compose.yml docker-wordpress-nginx`
 
+![ Dockerized Wordpress with NGINX web server & MariaDB - Wordpress , PHP FPM 7.1 , NGINX, MariaDB , phpmyadmin , docker & docker-compose](https://raw.githubusercontent.com/masoudei/docker-wordpress-nginx/master/screenshots/wp-docker-02.png?raw=true)
+
 # Notes
 
 - This repo contains custom php-fpm Dockerfile that you can edit and build your own image with customized php.ini settings ,<br>
@@ -43,3 +45,4 @@ Easily install wordpress as a single docker-compose.yml services
 - Fix some bugs
 
 * push your changes to this repo and send Merge Requests to me
+
