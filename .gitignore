@@ -1,9 +1,13 @@
+
 # MariaDB database files  & logs ( uncomment if you want to store DB files in repository )
-# /mariadb/**
+# /mariadb/ddl_recovery*
+
+/mariadb/*
 
 
 # Upload Folder of wordpress installation ( Uncomment if you want to store your wordpress uploads in repository )
 # /www/wp-content/uploads/*
 
 # NGINX log files
-# /nginx/log*
+/nginx/log/access.log
+/nginx/log/error.log
