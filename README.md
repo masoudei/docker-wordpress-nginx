@@ -6,12 +6,18 @@ Wordpress , PHP FPM 7.1 , NGINX, MariaDB , phpmyadmin , docker & docker-compose
 
 Easily install wordpress as a single docker-compose.yml services
 
-# How to Install
+# How to Setup
 
 1 - Install docker & docker-compose on your machine <br>
 2 - Run this command in root directory of this repo : <br>
 <br>
 `docker-compose up -d`
+
+# Wordpress Installation
+
+1- Fill wordpress installation database parameters from docker-compose file jsut like this :
+
+![ Dockerized Wordpress with NGINX web server & MariaDB - Wordpress , PHP FPM 7.1 , NGINX, MariaDB , phpmyadmin , docker & docker-compose](https://raw.githubusercontent.com/masoudei/docker-wordpress-nginx/master/screenshots/wp-install.png?raw=true)
 
 # Docker Swarm Install
 
