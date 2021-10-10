@@ -9,4 +9,4 @@
 /www/wp-content/uploads/*
 
 # NGINX log files
-/nginx/log/access.log
+/nginx/log/*
