@@ -1,12 +1,12 @@
 # MariaDB database files  & logs ( uncomment if you want to store DB files in repository )
-/mariadb/projectdb/wp_*
-/mariadb/ib_log*
-/mariadb/ib*
-/mariadb/inno*
+# /mariadb/projectdb/wp_*
+# /mariadb/ib_log*
+# /mariadb/ib*
+# /mariadb/inno*
 
 
 # Upload Folder of wordpress installation ( Uncomment if you want to store your wordpress uploads in repository )
-/www/wp-content/uploads/*
+# /www/wp-content/uploads/*
 
 # NGINX log files
 /nginx/log/*

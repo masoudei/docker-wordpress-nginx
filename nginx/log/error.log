@@ -1,1 +1,2 @@
 2021/05/11 20:02:44 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/site.conf:21
+2021/10/10 03:00:48 [error] 23#23: *6 directory index of "/www/" is forbidden, client: 172.26.0.1, server: , request: "GET / HTTP/1.1", host: "127.0.0.1"
