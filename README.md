@@ -9,8 +9,9 @@ Easily install wordpress as a single docker-compose.yml services
 # How to Setup
 
 1 - Install docker & docker-compose on your machine <br>
-2 - Run this command in root directory of this repo : <br>
-<br>
+2 - Download latest version of Wordpress from [https://wordpress.org/] and exctract content into /www folder
+3 - Replace database credentials in wp-config.php file from .env file as we used in docker-compose.yml for db connection
+4 - Run this command in root directory of this repo : 
 `docker-compose up -d`
 
 # Wordpress Installation
