@@ -1,23 +1,37 @@
 # Dockerized Wordpress with NGINX web server & MariaDB
 
-Wordpress , PHP FPM 7.1 , NGINX, MariaDB , phpmyadmin , docker & docker-compose
+Wordpress , PHP FPM 7.4 , NGINX, MariaDB , phpmyadmin , docker & docker-compose
 
-![ Dockerized Wordpress with NGINX web server & MariaDB - Wordpress , PHP FPM 7.1 , NGINX, MariaDB , phpmyadmin , docker & docker-compose](https://raw.githubusercontent.com/masoudei/docker-wordpress-nginx/master/screenshots/wp-docker-01.png?raw=true)
+![ Dockerized Wordpress with NGINX web server & MariaDB - Wordpress , PHP FPM 7.4 , NGINX, MariaDB , phpmyadmin , docker & docker-compose](https://raw.githubusercontent.com/masoudei/docker-wordpress-nginx/master/screenshots/wp-docker-01.png?raw=true)
 
 Easily install wordpress as a single docker-compose.yml services
 
 # How to Setup
 
-1 - Install docker & docker-compose on your machine <br>
-2 - Run this command in root directory of this repo : <br>
-<br>
-`docker-compose up -d`
+- Install docker & docker-compose on your machine
+- Download latest version of Wordpress from [https://wordpress.org/] and exctract content into /www folder
+- Run this command in root directory of this repo :
+  `docker-compose up -d`
+- Navigate to [http://localhost] in your browser
+- Follow wordpress installation instructions with these db connection credentials ( as provided in .env file) :
+
+Database Name : wordpress
+Username : username
+Password: password
+Database Host : mariadb
+
+- That's it !
 
 # Wordpress Installation
 
-1- Fill wordpress installation database parameters from docker-compose file jsut like this :
+1- Fill wordpress installation database parameters from docker-compose file or .env file :
 
-![ Dockerized Wordpress with NGINX web server & MariaDB - Wordpress , PHP FPM 7.1 , NGINX, MariaDB , phpmyadmin , docker & docker-compose](https://raw.githubusercontent.com/masoudei/docker-wordpress-nginx/master/screenshots/wp-install.png?raw=true)
+![ Dockerized Wordpress with NGINX web server & MariaDB - Wordpress , PHP FPM 7.4 , NGINX, MariaDB , phpmyadmin , docker & docker-compose](https://raw.githubusercontent.com/masoudei/docker-wordpress-nginx/master/screenshots/wp-install.png?raw=true)
+
+Database Name : wordpress
+Username : username
+Password: password
+Database Host : mariadb
 
 # Docker Swarm Install
 
@@ -26,7 +40,7 @@ Easily install wordpress as a single docker-compose.yml services
 <br><br>
 `docker stack deploy -c docker-compose.yml docker-wordpress-nginx`
 
-![ Dockerized Wordpress with NGINX web server & MariaDB - Wordpress , PHP FPM 7.1 , NGINX, MariaDB , phpmyadmin , docker & docker-compose](https://raw.githubusercontent.com/masoudei/docker-wordpress-nginx/master/screenshots/wp-docker-02.png?raw=true)
+![ Dockerized Wordpress with NGINX web server & MariaDB - Wordpress , PHP FPM 7.4 , NGINX, MariaDB , phpmyadmin , docker & docker-compose](https://raw.githubusercontent.com/masoudei/docker-wordpress-nginx/master/screenshots/wp-docker-02.png?raw=true)
 
 # Notes
 
@@ -51,4 +65,3 @@ Easily install wordpress as a single docker-compose.yml services
 - Fix some bugs
 
 * push your changes to this repo and send Merge Requests to me
-
