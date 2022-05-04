@@ -59,9 +59,9 @@ Database Host : mariadb
 
 # Features to be added soon :
 
-- Upgrade to latest wordpress
-- Upgrade php to version 7.4 & 8
-- Add File Manager service to this stack
-- Fix some bugs
+- [x] Upgraded to latest wordpress 
+- [x] Upgrade php to version 7.4
+- [ ] Upgrade php to version 8.x
+- [ ] Add File Manager service to this stack
 
 * push your changes to this repo and send Merge Requests to me
