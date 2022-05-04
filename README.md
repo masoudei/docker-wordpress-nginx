@@ -29,18 +29,30 @@ Database Host : mariadb
 ![ Dockerized Wordpress with NGINX web server & MariaDB - Wordpress , PHP FPM 7.4 , NGINX, MariaDB , phpmyadmin , docker & docker-compose](https://raw.githubusercontent.com/masoudei/docker-wordpress-nginx/master/screenshots/wp-install.png?raw=true)
 
 Database Name : wordpress
+
 Username : username
+
 Password: password
+
 Database Host : mariadb
 
 ## Docker Swarm Install
 
-1 - Install docker & Initialize docker swarm cluster<br>
-1 - Easily run this command to install as a swarm stack
-<br><br>
-`docker stack deploy -c docker-compose.yml docker-wordpress-nginx`
+- Install docker & initialize docker swarm cluster
+- Run this command to install as a swarm stack
+
+```
+docker stack deploy -c docker-compose.yml docker-wordpress-nginx
+```
 
 ![ Dockerized Wordpress with NGINX web server & MariaDB - Wordpress , PHP FPM 7.4 , NGINX, MariaDB , phpmyadmin , docker & docker-compose](https://raw.githubusercontent.com/masoudei/docker-wordpress-nginx/master/screenshots/wp-docker-02.png?raw=true)
+
+## phpMyAdmin
+
+- Open this url : [localhost:](http://localhost:8183/)
+- fill mariadb root credentials as we provided in .env or docker-compose.yml
+
+![ Dockerized Wordpress with phpmyadmin docker & docker-compose](https://raw.githubusercontent.com/masoudei/docker-wordpress-nginx/master/screenshots/phpmyadmin.png?raw=true)
 
 ### Notes
 
@@ -59,7 +71,7 @@ Database Host : mariadb
 
 ## Features to be added soon :
 
-- [x] Upgraded to latest wordpress 
+- [x] Upgraded to latest wordpress
 - [x] Upgrade php to version 7.4
 - [ ] Upgrade php to version 8.x
 - [ ] Add File Manager service to this stack
