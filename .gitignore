@@ -2,7 +2,7 @@
 # MariaDB database files  & logs ( uncomment if you want to store DB files in repository )
 # /mariadb/ddl_recovery*
 
-/mariadb/*
+/mariadb/
 
 
 # Upload Folder of wordpress installation ( Uncomment if you want to store your wordpress uploads in repository )

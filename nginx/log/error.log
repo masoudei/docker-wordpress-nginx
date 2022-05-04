@@ -1,4 +1,0 @@
-2021/05/11 20:02:44 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/site.conf:21
-2021/10/10 03:00:48 [error] 23#23: *6 directory index of "/www/" is forbidden, client: 172.26.0.1, server: , request: "GET / HTTP/1.1", host: "127.0.0.1"
-2021/10/10 03:22:08 [error] 22#22: *1 directory index of "/www/" is forbidden, client: 172.30.0.1, server: , request: "GET / HTTP/1.1", host: "localhost"
-2021/10/10 03:34:04 [error] 22#22: *9 FastCGI sent in stderr: "PHP message: WordPress database error Unknown column 'wp_' in 'field list' for query SELECT wp_" while reading response header from upstream, client: 172.30.0.1, server: , request: "POST /wp-admin/setup-config.php?step=2 HTTP/1.1", upstream: "fastcgi://172.30.0.4:9000", host: "localhost", referrer: "http://localhost/wp-admin/setup-config.php?step=1"
