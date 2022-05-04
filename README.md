@@ -6,7 +6,7 @@ Wordpress , PHP FPM 7.4 , NGINX, MariaDB , phpmyadmin , docker & docker-compose
 
 Easily install wordpress as a single docker-compose.yml services
 
-# How to Setup
+## How to Setup
 
 - Install docker & docker-compose on your machine
 - Download latest version of Wordpress from [https://wordpress.org/] and exctract content into /www folder
@@ -22,7 +22,7 @@ Database Host : mariadb
 
 - That's it !
 
-# Wordpress Installation
+## Wordpress Installation
 
 1- Fill wordpress installation database parameters from docker-compose file or .env file :
 
@@ -33,7 +33,7 @@ Username : username
 Password: password
 Database Host : mariadb
 
-# Docker Swarm Install
+## Docker Swarm Install
 
 1 - Install docker & Initialize docker swarm cluster<br>
 1 - Easily run this command to install as a swarm stack
@@ -42,7 +42,7 @@ Database Host : mariadb
 
 ![ Dockerized Wordpress with NGINX web server & MariaDB - Wordpress , PHP FPM 7.4 , NGINX, MariaDB , phpmyadmin , docker & docker-compose](https://raw.githubusercontent.com/masoudei/docker-wordpress-nginx/master/screenshots/wp-docker-02.png?raw=true)
 
-# Notes
+### Notes
 
 - This repo contains custom php-fpm Dockerfile that you can edit and build your own image with customized php.ini settings ,<br>
 
@@ -57,7 +57,7 @@ Database Host : mariadb
 
 * Change this dockerfile in : ./php/Dockerfile <br>
 
-# Features to be added soon :
+## Features to be added soon :
 
 - [x] Upgraded to latest wordpress 
 - [x] Upgrade php to version 7.4
