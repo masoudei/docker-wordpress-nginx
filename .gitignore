@@ -12,5 +12,5 @@
 
 
 # NGINX log files
-/nginx/log/access.log
-/nginx/log/error.log
+/nginx/log/
+/nginx/log/

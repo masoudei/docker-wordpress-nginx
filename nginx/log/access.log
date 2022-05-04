@@ -1,0 +1,1 @@
+172.28.0.1 - - [04/May/2022:13:17:13 +0000] "GET /wp-admin/setup-config.php?step=1 HTTP/1.1" 409 2773 "http://localhost/wp-admin/setup-config.php" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36"

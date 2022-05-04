@@ -1,6 +1,7 @@
 version: "3.5"
 services:
   nginx:
+    container_name: nginx
     build: ./nginx/
     ports:
       - "80:80"
@@ -12,6 +13,7 @@ services:
       - php
 
   php:
+    container_name: php
     build: ./php/
     volumes:
       - ./www:/www
@@ -19,19 +21,23 @@ services:
       - mariadb
 
   mariadb:
+    container_name: mariadb
     image: mariadb
     restart: always
     volumes:
       - ./mariadb:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: PASSWORD
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: PASSWORD
-      MYSQL_DATABASE: projectdb
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: wordpress
     expose:
       - "3306"
+    ports:
+      - "3306:3306"
 
   phpmyadmin:
+    container_name: phpmyadmin
     image: phpmyadmin/phpmyadmin
     restart: always
     links:
@@ -39,7 +45,7 @@ services:
     ports:
       - 8183:80
     environment:
-      MYSQL_USERNAME: admin
-      MYSQL_ROOT_PASSWORD: PASSWORD
+      MYSQL_USERNAME: root
+      MYSQL_ROOT_PASSWORD: password
       PMA_HOST: 127.0.0.1
       PMA_ARBITRARY: 1
