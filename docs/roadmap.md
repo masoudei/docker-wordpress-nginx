@@ -7,8 +7,8 @@ Stable local development environment.
 ### Features
 
 - Nginx reverse proxy with gzip, security headers, caching
-- PHP 8.3-FPM with essential WordPress extensions and tools (wp-cli, Composer)
-- PHP 7.4-FPM for legacy project support
+- PHP 8.3-FPM with official WordPress image (all required extensions, wp-cli)
+- PHP 7.4-FPM for legacy project support (via WORDPRESS_TAG)
 - MariaDB 11 with automated health checks
 - phpMyAdmin for database management
 - `.env` configuration for ports, credentials, paths

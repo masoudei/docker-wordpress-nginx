@@ -38,6 +38,6 @@ Config changes must not break existing workflows. Adding PHP 7.4 support does no
 ## Developer Experience
 
 - Healthchecks on every service for reliable orchestration
-- wp-cli and Composer built into PHP image
+- wp-cli built into WordPress image
 - phpMyAdmin for database exploration
-- Debug log accessible via `docker compose exec php tail -f`
+- Debug log accessible via `docker compose exec wordpress tail -f`
