@@ -1,51 +1,112 @@
-version: "3.5"
 services:
   nginx:
     container_name: nginx
     build: ./nginx/
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
     ports:
-      - "80:80"
-    volumes_from:
-      - php
+      - "${NGINX_HTTP_PORT:-80}:80"
+      - "${NGINX_HTTPS_PORT:-443}:443"
     volumes:
+      - ${WORDPRESS_DIR:-./www}:/var/www/html
       - ./nginx/log:/var/log/nginx
-    links:
-      - php
+    depends_on:
+      wordpress:
+        condition: service_started
+    networks:
+      - wordpress
+    healthcheck:
+      test: ["CMD-SHELL", "nginx -t 2>&1 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
 
-  php:
-    container_name: php
-    build: ./php/
+  wordpress:
+    container_name: wordpress
+    image: wordpress:${WORDPRESS_TAG:-6.7-php8.3-fpm-alpine}
+    restart: unless-stopped
     volumes:
-      - ./www:/www
-    links:
-      - mariadb
+      - ${WORDPRESS_DIR:-./www}:/var/www/html
+    init: true
+    environment:
+      WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST:-mariadb}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME:-wordpress}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER:-wordpress}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD:-password}
+      WORDPRESS_TABLE_PREFIX: ${WORDPRESS_TABLE_PREFIX:-wp_}
+      WORDPRESS_DEBUG: ${WORDPRESS_DEBUG:-1}
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    networks:
+      - wordpress
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    healthcheck:
+      test: ["CMD-SHELL", "php -v 2>&1 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
 
   mariadb:
     container_name: mariadb
-    image: mariadb
-    restart: always
+    image: mariadb:11.4
+    restart: unless-stopped
+    stop_grace_period: 60s
     volumes:
       - ./mariadb:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_USER: username
-      MYSQL_PASSWORD: password
-      MYSQL_DATABASE: wordpress
-    expose:
-      - "3306"
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root_password}
+      MYSQL_DATABASE: ${WORDPRESS_DB_NAME:-wordpress}
+      MYSQL_USER: ${WORDPRESS_DB_USER:-wordpress}
+      MYSQL_PASSWORD: ${WORDPRESS_DB_PASSWORD:-password}
     ports:
-      - "3306:3306"
+      - "${MARIADB_PORT:-3306}:3306"
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - wordpress
 
   phpmyadmin:
     container_name: phpmyadmin
-    image: phpmyadmin/phpmyadmin
-    restart: always
-    links:
-      - mariadb
+    image: phpmyadmin/phpmyadmin:5.2
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
     ports:
-      - 8183:80
+      - "${PHPMYADMIN_PORT:-8183}:80"
     environment:
-      MYSQL_USERNAME: root
-      MYSQL_ROOT_PASSWORD: password
-      PMA_HOST: 127.0.0.1
-      PMA_ARBITRARY: 1
+      PMA_HOST: mariadb
+      PMA_USER: ${WORDPRESS_DB_USER:-wordpress}
+      PMA_PASSWORD: ${WORDPRESS_DB_PASSWORD:-password}
+      UPLOAD_LIMIT: ${PHPMYADMIN_UPLOAD_LIMIT:-128M}
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    networks:
+      - wordpress
+
+networks:
+  wordpress:
+    driver: bridge

@@ -1,0 +1,12 @@
+.git/
+.gitignore
+.dockerignore
+.env
+.env.example
+README.md
+screenshots/
+www/
+mariadb/
+nginx/log/
+.DS_Store
+Thumbs.db

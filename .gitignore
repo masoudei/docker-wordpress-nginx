@@ -1,16 +1,45 @@
+# --------------------------------
+# Environment (secrets)
+# --------------------------------
+.env
 
-# MariaDB database files  & logs ( uncomment if you want to store DB files in repository )
-# /mariadb/ddl_recovery*
+# --------------------------------
+# WordPress
+# --------------------------------
+/www/
 
+# --------------------------------
+# Database files
+# --------------------------------
 /mariadb/
 
-
-# Ignore all www folder including wordpress core files and folders
-/www/
-# or if you want to ignore only upload folder of wordpress installation ( Uncomment if you want to store your wordpress uploads in repository )
-# /www/wp-content/uploads/*
-
-
-# NGINX log files
+# --------------------------------
+# Logs
+# --------------------------------
 /nginx/log/
-/nginx/log/
+
+# --------------------------------
+# OS files
+# --------------------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+*.swp
+*.swo
+*~
+
+# --------------------------------
+# IDE
+# --------------------------------
+.vscode/
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+
+# --------------------------------
+# Project-specific
+# --------------------------------
+AGENTS-BOILERPLATE.md

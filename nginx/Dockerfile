@@ -1,8 +1,11 @@
-FROM nginx:latest
+# syntax=docker/dockerfile:1
+FROM nginx:1.27-alpine
 
-# Remove default configuration files
-RUN rm /etc/nginx/conf.d/default.conf; exit 0
+LABEL description="WordPress Nginx reverse proxy with security headers and caching"
+LABEL org.opencontainers.image.source="https://github.com/masoudei/docker-wordpress-nginx"
+LABEL org.opencontainers.image.description="WordPress local development environment"
 
-# Copy our custom config files to Nginx Contatiner
-COPY conf/nginx.conf /etc/nginx
-COPY conf/conf.d /etc/nginx/conf.d
+RUN rm /etc/nginx/conf.d/default.conf
+
+COPY conf/nginx.conf /etc/nginx/nginx.conf
+COPY conf/conf.d/ /etc/nginx/conf.d/
